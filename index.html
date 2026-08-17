@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>苏紫琪 Suki · Marketing Portfolio</title>
+  <meta name="description" content="苏紫琪 — 品牌内容策划｜达人营销 作品集" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:," />
+  <!-- 预热简历预览页资源：点击「查看简历」瞬时跳转；预览图预取使内容秒显（已弃用 PDF.js） -->
+  <link rel="prefetch" href="resume/" as="document" />
+  <link rel="prefetch" href="resume/resume-preview-b0c95411.webp" as="image" />
+  <!-- 关键成果图预取：页面加载即请求（WebP，桌面/移动两档，与展示变体一致），切换项目直接命中缓存 -->
+  <link rel="preload" as="image" href="assets/images/cases/dongejiao/ajiao_sousuo_fenshu_900.webp" />
+  <link rel="preload" as="image" href="assets/images/cases/dongejiao/ajiao_sousuo_fenshu_600.webp" />
+  <link rel="preload" as="image" href="assets/images/cases/xiaoqinghe/xiaoqinghe_sousuo_zhishu_900.webp" />
+  <link rel="preload" as="image" href="assets/images/cases/xiaoqinghe/xiaoqinghe_sousuo_zhishu_600.webp" />
+</head>
+<body>
+
+  <main class="page">
+
+    <!-- ===== Profile Card（常驻职业名片） ===== -->
+    <header class="profile-card" id="profile-card">
+      <div class="profile-avatar" id="profile-avatar"></div>
+      <div class="profile-info">
+        <h1 class="profile-name">
+          <span id="profile-name-cn"></span>
+          <span class="profile-name-en" id="profile-name-en"></span>
+        </h1>
+        <p class="profile-title" id="profile-title"></p>
+        <div class="profile-meta" id="profile-meta"></div>
+        <p class="profile-tagline" id="profile-tagline"></p>
+      </div>
+      <div class="profile-actions" id="profile-actions"></div>
+    </header>
+
+    <!-- ===== 模块入口 Tab ===== -->
+    <nav class="tab-bar" id="tab-bar" role="tablist" aria-label="模块导航"></nav>
+
+    <!-- ===== 唯一内容切换区 ===== -->
+    <section class="content-area" id="content-area" role="tabpanel"></section>
+
+    <footer class="site-footer">
+      <span id="footer-text"></span>
+    </footer>
+  </main>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
