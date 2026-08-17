@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>苏紫琪 Suki · 简历预览</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="data:," />
+  <!-- 进入页面即开始拉取预览图（与 PDF 同源渲染，框架先出现、图片随后秒显，无需 PDF.js） -->
+  <link rel="preload" as="image" href="resume-preview-b0c95411.webp" type="image/webp" />
+  <style>
+    :root {
+      --bg: #f6f4f1;
+      --card: #ffffff;
+      --ink: #2b2622;
+      --muted: #8a817a;
+      --line: #ece7e1;
+      --brand: #c0392b;
+      --brand-d: #9c2c20;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB",
+        "Microsoft YaHei", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    .topbar {
+      position: sticky; top: 0; z-index: 20;
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 14px calc(10px + env(safe-area-inset-top, 0px));
+      padding-top: calc(10px + env(safe-area-inset-top, 0px));
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: saturate(180%) blur(8px);
+      -webkit-backdrop-filter: saturate(180%) blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar .title { font-weight: 700; font-size: 15px; margin-right: auto; letter-spacing: .3px; }
+    .topbar .title small { display:block; font-weight:500; color: var(--muted); font-size: 11px; letter-spacing:0; }
+    .btn {
+      appearance: none; border: 1px solid var(--line); background: #fff; color: var(--ink);
+      font-size: 14px; font-weight: 600; padding: 9px 14px; border-radius: 999px;
+      cursor: pointer; white-space: nowrap; transition: transform .12s ease, background .12s ease;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 5px;
+    }
+    .btn:active { transform: scale(.96); }
+    .btn-primary { background: var(--brand); border-color: var(--brand); color: #fff; }
+    .btn-primary:active { background: var(--brand-d); }
+    .btn[disabled] { opacity: .6; pointer-events: none; }
+
+    .stage { padding: 14px 12px 48px; }
+    .hint { text-align: center; color: var(--muted); font-size: 12px; margin: 0 0 12px; }
+
+    #pdf-container { max-width: 820px; margin: 0 auto; }
+    #pdf-container img {
+      display: block; margin: 0 auto; width: 100%; height: auto;
+      background: #fff; box-shadow: 0 2px 14px rgba(0,0,0,.06); border-radius: 6px;
+    }
+
+    .status {
+      max-width: 820px; margin: 40px auto; text-align: center; color: var(--muted);
+      font-size: 14px; padding: 24px;
+    }
+    .status .spin {
+      width: 26px; height: 26px; margin: 0 auto 12px; border-radius: 50%;
+      border: 3px solid var(--line); border-top-color: var(--brand);
+      animation: spin 0.8s linear infinite;
+    }
+    .status.err { color: var(--brand-d); }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .footer-note { text-align:center; color: var(--muted); font-size: 11px; padding: 0 16px 28px; }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <a class="btn" id="btn-back" href="../">← 返回作品集</a>
+    <div class="title">苏紫琪 Suki<small>内容营销 · 达人合作 · 媒介运营</small></div>
+    <a class="btn btn-primary" id="btn-download" href="苏紫琪-简历-b0c95411.pdf" download="苏紫琪-简历.pdf">⬇ 下载 PDF</a>
+  </div>
+
+  <div class="stage">
+    <p class="hint">在线预览 · 支持下载 PDF</p>
+    <div id="status" class="status"><div class="spin"></div>正在加载简历…</div>
+    <div id="pdf-container">
+      <picture>
+        <source srcset="resume-preview-b0c95411.webp" type="image/webp">
+        <img id="resume-img" src="resume-preview-b0c95411.png" alt="苏紫琪 简历预览" width="1489" height="2106">
+      </picture>
+    </div>
+  </div>
+  <p class="footer-note">© 苏紫琪 Suki · Marketing Portfolio</p>
+
+  <script>
+    /* 极小脚本：仅负责「图片加载完成即隐藏加载态」「返回」与「图片缺失兜底」。
+       所有渲染均为静态 <img>，与 PDF.js 完全解耦，首屏框架（顶栏/按钮/提示）立即出现。 */
+    (function () {
+      var statusEl = document.getElementById("status");
+      var img = document.getElementById("resume-img");
+      function hideStatus() { if (statusEl) statusEl.style.display = "none"; }
+      if (img.complete && img.naturalWidth > 0) {
+        hideStatus(); // 已缓存，立即隐藏
+      } else {
+        img.addEventListener("load", hideStatus);
+        img.addEventListener("error", function () {
+          statusEl.className = "status err";
+          statusEl.innerHTML = "简历图片加载失败，请点击右上角「下载 PDF」查看完整文件。";
+        });
+      }
+      var back = document.getElementById("btn-back");
+      back.addEventListener("click", function (e) {
+        e.preventDefault();
+        try {
+          if (document.referrer && document.referrer.indexOf(location.origin) === 0 && history.length > 1) {
+            history.back();
+          } else {
+            location.href = "../";
+          }
+        } catch (_) { location.href = "../"; }
+      });
+    })();
+  </script>
+</body>
+</html>
