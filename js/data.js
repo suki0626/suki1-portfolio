@@ -28,7 +28,7 @@ const SITE_DATA = {
     contacts: {
       email:  "suzq797@qq.com",
       wechat: "sututu797",
-      resume: "resume/苏紫琪-简历-b0c95411.pdf"
+      resume: "resume/苏紫琪-简历-399e8e64.pdf"
     }
   },
 
