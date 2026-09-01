@@ -878,7 +878,7 @@
   function prefetchResume() {
     const urls = [
       "resume/",
-      "resume/resume-preview-b0c95411.webp"
+      "resume/resume-preview-399e8e64.webp"
     ];
     urls.forEach((u) => {
       if (document.querySelector(`link[rel="prefetch"][href="${u}"]`)) return; // 去重
